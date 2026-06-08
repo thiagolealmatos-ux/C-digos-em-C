@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+typedef struct {
+    char nome[50];
+    float preco;
+    int quantidade;
+    
+} Produto;
+
+int main()
+{
+   int n;
+   float valor_em_estoque = 0, total_geral = 0;
+   int maior = 0;
+   int menor = 0;
+    
+    printf("Quantos Produtos:");
+   scanf("%d", &n);
+   
+   Produto produto[n];
+  
+   
+   for(int i = 0; i < n; i++){
+       printf("Produto %d|", i + 1);
+       printf("Nome do Produto: ");
+       scanf("%s", produto[i].nome);
+       printf("Qual e o preço desse produto: ");
+       scanf("%f", &produto[i].preco);
+       printf("Quantos desse produto: ");
+       scanf("%d", &produto[i].quantidade);
+       
+     
+   }
+  
+  printf("------------RESUMO DA SUA COMPRA------------");
+   
+   for(int i = 0; i < n; i++){
+        printf("\nNome do Produto: %s ", produto[i].nome);
+        printf("\nPreço do seu produto: %.2f", produto[i].preco);
+        printf("\nQuantidade desse produto: %d", produto[i].quantidade);
+       
+        valor_em_estoque = produto[i].preco * produto[i].quantidade;
+        total_geral += valor_em_estoque;
+   
+   printf("\nValor em estoque: %.2f", valor_em_estoque);
+      
+   if(produto[i].preco * produto[i].quantidade > produto[maior].preco * produto[maior].quantidade){
+    maior = i;
+       
+   }
+
+ if(produto[i].preco < produto[menor].preco){
+             menor = i;
+         }
+         
+}
+printf("\n-----------------------------------------------------------\n");
+      printf("\nTotal da sua compra: %.2f", total_geral);
+      printf("\n-----------------------------------------------------------\n");
+  printf("\nProduto com maior valor em estoque: %s", produto[maior].nome);
+
+printf("\nValor em estoque: %.2f",produto[maior].preco * produto[maior].quantidade);
+
+   printf("\nPreço do produto mais barato : %.2f", produto[menor].preco);
+   printf("\nNome do produto mais barato: %s", produto[menor].nome);
+    return 0;
+}

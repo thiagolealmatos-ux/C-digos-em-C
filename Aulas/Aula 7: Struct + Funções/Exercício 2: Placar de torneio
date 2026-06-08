@@ -1,0 +1,83 @@
+#include <stdio.h>
+
+typedef struct {
+    char nome[50];
+    int vitoria, empate, derrota, pontos;
+}Time;
+
+void lerTimes(Time times[], int n){
+    
+    for(int i = 0; i < n; i++){
+       
+        printf("Time %d|", i + 1);
+        printf("Nome do time: ");
+        scanf("%s", times[i].nome);
+        printf("Quantas vitórias seu time conquistou: ");
+        scanf("%d", &times[i].vitoria);
+        printf("Quantas derrotas seu time teve: ");
+        scanf("%d", &times[i].derrota);
+        printf("Quantos empates: ");
+        scanf("%d", &times[i].empate);
+    }
+}
+
+void calcularPontos(Time times[], int n){
+    
+        for(int i = 0; i < n; i++){
+    
+        times[i].pontos = times[i].vitoria * 3 + times[i].empate;
+    }
+}
+
+void imprimirClassificacao(Time times[], int n){
+    
+     for(int i = 0; i < n; i++){
+        
+        printf("\n---------------------------------------------\n");
+        printf("\nNome do Time: %s", times[i].nome);
+        printf("\nQuantidade de Vitorias: %d", times[i].vitoria);
+        printf("\nQuantidade de Empates: %d", times[i].empate);
+        printf("\nQuantidade de errotas: %d", times[i].derrota);
+        printf("\nQuantidade de Pontos: %d", times[i].pontos);
+        printf("\n---------------------------------------------\n");
+       
+    }
+}
+
+int encontrarLider(Time times[], int n){
+    
+    int maior = 0;
+    
+    for(int i = 1; i < n; i++){
+    
+    if(times[i].pontos > times[maior].pontos){
+       maior = i;
+    }
+    }
+    return maior;
+}
+int main()
+{
+    int n;
+    
+    printf("Quantos times: ");
+    scanf("%d", &n);
+    
+    Time times[n];
+    
+    printf("\n---------------------------------------------\n");
+    
+    lerTimes(times, n);
+    
+    calcularPontos(times, n);
+    
+     imprimirClassificacao(times, n);
+     
+     int maior = encontrarLider(times, n);
+    
+    
+    printf("Time com mais pontos: %s", times[maior].nome);
+    printf("\nQuantidade de pontos: %d", times[maior].pontos);
+  
+    return 0;
+}

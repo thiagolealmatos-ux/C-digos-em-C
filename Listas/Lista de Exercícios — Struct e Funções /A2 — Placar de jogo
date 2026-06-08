@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+
+struct SãoPaulo {
+    
+    int gols;
+};
+struct Corinthians {
+    
+    int gols;
+};
+int main()
+{
+    struct SãoPaulo p1;
+    struct Corinthians p2;
+    
+    printf("Quantos gols São Paulo fez: ");
+    scanf("%d", &p1.gols);
+    printf("Quantos gols Corinthians fez: ");
+    scanf("%d", &p2.gols);
+    
+    if ( p1.gols > p2.gols){
+        printf("\nSãoPaulo Vencedor");
+        
+    }
+    if(p2.gols > p1.gols){
+        printf("\nCorinthians Vencedor");
+        
+        }
+        if(p1.gols == p2.gols){
+            printf("\nEmpate");
+        }
+    
+    
+    
+    
+
+
+    return 0;
+}

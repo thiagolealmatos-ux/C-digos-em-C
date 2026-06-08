@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+typedef struct {
+    float nota1, nota2, nota3;
+    char nome[50];
+    float media;
+    float total;
+}Aluno;
+
+Aluno calcularMedia(Aluno a){
+    
+    a.total = a.nota1 + a.nota2 + a.nota3;
+    a.media = a.total / 3;
+    
+    return a;
+}
+char definirConceito(float media){
+    
+    if(media >= 9){
+        return 'A';
+    }
+     if(media >= 7){
+         return 'B';
+     }
+     if(media >= 5){
+         
+        return 'C';
+     }
+    else{
+        return 'D';
+    }
+    
+}
+void imprimirAluno(Aluno a){
+    
+    printf("nome do seu aluno: %s", a.nome);
+    printf("Nota 1: %.2f", a.nota1);
+    printf("Nota 2: %.2f", a.nota2);
+    printf("Nota 3: %.2f", a.nota3);
+    printf("Media: %.2f", a.media);
+}
+
+int main()
+{
+   int n = 0;
+  
+
+   
+   printf("Digite a quantidade de alunos: ");
+   scanf("%d", &n);
+   
+   Aluno a[n];
+   
+   for(int i = 0; i < n; i++){
+     printf("Aluno %d|", i + 1);
+      printf("Nome do seu aluno: ");
+      scanf("%s", a[i].nome);
+     
+      printf("nota 1: ");
+      scanf("%f", &a[i].nota1);
+      
+       printf("nota 2: ");
+      scanf("%f", &a[i].nota2);
+      
+       printf("nota 3: ");
+      scanf("%f", &a[i].nota3);
+      
+      a[i] = calcularMedia(a[i]);
+    
+   }
+  
+   printf("\n-----------BOLETIM-----------\n");
+  for(int i = 0; i < n; i++){
+    
+   
+      printf("\nNome do aluno: %s", a[i].nome);
+      printf("\nNota 1: %.2f", a[i].nota1);
+      printf("\nNota 2: %.2f", a[i].nota2);
+      printf("\nNota 3: %.2f", a[i].nota3);
+      printf("\nMedia: %.2f", a[i].media);
+     printf("\nConceito: %c", definirConceito(a[i].media));
+     printf("\n-----------------------------\n");
+    
+     
+      
+  }
+    return 0;
+}

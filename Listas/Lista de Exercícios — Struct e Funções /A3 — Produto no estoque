@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+
+struct Produto{
+    char Nome[50];
+    float preco;
+     int quantidade;
+};
+
+int main()
+{
+  struct Produto p1;
+  float total;
+  float desconto;
+  
+  printf("Digite o nome do Produto: ");
+  scanf("%s", p1.Nome);
+  printf("Digite o preco do Produto: ");
+  scanf("%f", &p1.preco);
+  printf("Digite a quantidade do produto: ");
+  scanf("%d", &p1.quantidade);
+  
+  
+  total = p1.preco * p1.quantidade;
+  
+  desconto = total * 0.90;
+  
+  printf("\nRESUMO DA SUA COMPRA!");
+  printf("\n---------------------------------------------");
+  printf("\nO Valor total da sua conta é: %.2f ", total);
+  printf("\n------------------------------------------------");
+  printf("\nO Valor da sua conta com 10%% desconto é:%.2f", desconto);
+  
+  
+  
+  
+  
+  
+    return 0;
+}

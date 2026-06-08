@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+    float somar(float a, float b) {
+        return a + b;
+    }
+float subtração(float a, float b) {
+    return a - b;
+}
+float multiplicação(float a, float b) {
+    return a * b;
+}
+float divisão(float a, float b) {
+    if(b == 0){
+        printf("Erro");
+    }
+    else{
+        
+    return a / b;
+}
+}
+int main()
+{
+    float a, b;
+    
+   printf("Digite o primeiro número: ");
+   scanf("%f", &a);
+   printf("Digite o segundo número: ");
+   scanf("%f", &b);
+  
+   printf("\n_____________________________________________________________\n");
+   
+   printf("\nResultado da soma: %.2f", somar(a, b));
+    printf("\nResultado da subtração: %.2f", subtração(a, b));
+     printf("\nResultado da multiplicação: %.2f", multiplicação(a, b));
+      printf("\nResultado da divisão: %.2f", divisão(a, b));
+
+    return 0;
+}

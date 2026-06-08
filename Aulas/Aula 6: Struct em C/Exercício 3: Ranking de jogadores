@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+typedef struct {
+    char nome[50];
+    int pontos;
+    int vitorias;
+} Jogador;
+
+int main()
+{
+   int quantidade, maior = 0;
+   int media = 0;
+   int acimaMedia = 0, total_de_vitorias = 0, total = 0;
+   
+    printf("Quantos Jogadores:");
+   scanf("%d", &quantidade);
+   
+   Jogador jogador[quantidade];
+  
+   
+   for(int i = 0; i < quantidade; i++){
+       printf("Jogador %d|", i + 1);
+       printf("Nome do Jogador: ");
+       scanf("%s", jogador[i].nome);
+       printf("Quantos pontos esse jogador fez: ");
+       scanf("%d", &jogador[i].pontos);
+       printf("Quantas vitorias teve esse jogador: ");
+       scanf("%d", &jogador[i].vitorias);
+       
+       total_de_vitorias += jogador[i].vitorias;
+   }
+   
+   media = total_de_vitorias / quantidade;
+   
+   printf("\n-------------RESUMO DA PARTIDA!-------------\n");
+   for(int i = 0; i < quantidade; i++){
+       printf("\nNome do seu jogador: %s", jogador[i].nome);
+       printf("\nPontos do seu jogador: %d", jogador[i].pontos);
+       printf("\nVitorias do seu jogador: %d", jogador[i].vitorias);
+       printf("\n------------------------------------------------------\n");
+   
+  
+   
+   if(jogador[i].pontos > jogador[maior].pontos){
+       
+      maior = i;
+ 
+   }
+   if(jogador[i].vitorias > jogador[maior].vitorias){
+       maior = i;
+   }
+   
+   if(jogador[i].vitorias > media) {
+        acimaMedia++;
+    }
+    }
+
+  printf("\n-------------MVP DA PARTIDA-------------");
+  printf("\nJogador com mais pontos: %s", jogador[maior].nome);
+  printf("\nPontos: %d", jogador[maior].pontos);
+  printf("\nJogador com mais vitorias: %s", jogador[maior].nome);
+  printf("\nVitorias: %d", jogador[maior].vitorias);
+ printf("\nMedia de vitorias: %d", media);
+  printf("\nJogadores acima da media de vitorias: %d",acimaMedia);
+  
+    return 0;
+}

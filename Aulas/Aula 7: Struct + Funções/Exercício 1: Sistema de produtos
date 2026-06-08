@@ -1,0 +1,106 @@
+#include <stdio.h>
+
+typedef struct {
+    char nome[50];
+    float preco;
+    int quantidade;
+    float totalEstoque;
+} Produto;
+
+void lerProdutos(Produto est[], int n){
+
+    for(int i = 0; i < n; i++){
+    
+        printf("Produto %d|", i + 1);
+        printf("Nome do produto: ");
+        scanf("%s", est[i].nome);
+        printf("Preco do produto: ");
+        scanf("%f", &est[i].preco);
+        printf("Quantidade desse produto: ");
+        scanf("%d", &est[i].quantidade);
+    }
+}
+
+void calcularEstoque(Produto est[], int n){
+
+    for(int i = 0; i < n; i++){
+    
+        est[i].totalEstoque = est[i].preco * est[i].quantidade;
+    }
+}
+
+void imprimirEstoque(Produto est[], int n)
+{
+    float totalGeral = 0;
+
+    for(int i = 0; i < n; i++){
+    
+        printf("\n----------RESUMO DA SUA COMPRA---------------");
+        printf("\nNome do prodduto: %s", est[i].nome);
+        printf("\nPreco do produto: %.2f", est[i].preco);
+        printf("\nQuantidade desse produto: %d", est[i].quantidade);
+        printf("\nValor em estoque: %.2f", est[i].totalEstoque);
+
+        totalGeral += est[i].totalEstoque;
+    }
+
+    printf("\n-------------------------");
+    printf("\nTotal geral: %.2f", totalGeral);
+}
+
+int encontrarMaiorEstoque(Produto est[], int n)
+{
+    int maior = 0;
+
+    for(int i = 1; i < n; i++){
+    
+        if(est[i].totalEstoque > est[maior].totalEstoque){
+        
+            maior = i;
+        }
+    }
+
+    return maior;
+}
+
+int encontrarMenorPreco(Produto est[], int n){
+
+    int menor = 0;
+
+    for(int i = 1; i < n; i++){
+    
+        if(est[i].preco < est[menor].preco){
+        
+            menor = i;
+        }
+    }
+
+    return menor;
+}
+
+int main()
+{
+    int n;
+
+    printf("Quantos produtos: ");
+    scanf("%d", &n);
+
+    Produto est[n];
+
+    lerProdutos(est, n);
+
+    calcularEstoque(est, n);
+
+    imprimirEstoque(est, n);
+
+    int maior = encontrarMaiorEstoque(est, n);
+    int menor = encontrarMenorPreco(est, n);
+
+    printf("\nProduto com maior valor em estoque: %s", est[maior].nome);
+    printf("\nValor: %.2f", est[maior].totalEstoque);
+
+    printf("Produto com menor preco em estoque: %s", est[menor].nome);
+    printf("Preco: %.2f", est[menor].preco);
+
+    return 0;
+}
