@@ -14,9 +14,7 @@ int n;
 printf("Digite um numero: ");
 scanf("%d", &n);
 
-soma(n);
-
-printf("Resultado:", soma(n));
+printf("Resultado: %d", soma(n));
 
 return 0;
 }
