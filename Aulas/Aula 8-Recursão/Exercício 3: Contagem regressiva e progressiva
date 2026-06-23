@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+void regressiva(int n){
+        
+        if(n == 0){
+            printf("\nVai!\n");
+            return;
+        }
+          printf("%d ", n);
+    regressiva(n - 1);
+    }
+
+    void progressiva(int n){
+        
+         if(n == 0){
+            printf("\nVai!\n");
+            return;
+        }
+         
+    printf("%d ", n);
+     progressiva(n - 1);
+    }
+
+
+int main()
+{
+    int n;
+    
+    printf("Digite um Número: ");
+    scanf("%d", &n);
+
+printf("Ordem Regressiva: ");
+ regressiva(n);
+    printf("------------------------------");
+     printf("\nOrdem Progressiva: ");
+progressiva(n);
+
+    return 0;
+}

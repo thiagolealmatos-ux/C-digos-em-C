@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int potencia(int base, int exp){
+    if(exp == 0){
+        return 1;
+    }
+    return base * potencia(base, exp - 1);
+}
+int main()
+{
+   int base, exp;
+   
+   printf("Digite a Base: ");
+   scanf("%d", &base);
+   printf("Digite a Potencia: ");
+   scanf("%d", &exp);
+   
+   printf("\nRESULTADO: %d", potencia(base, exp));
+
+    return 0;
+}

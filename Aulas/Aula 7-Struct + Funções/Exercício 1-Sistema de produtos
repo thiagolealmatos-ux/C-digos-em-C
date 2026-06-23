@@ -70,8 +70,7 @@ int encontrarMenorPreco(Produto est[], int n){
     for(int i = 1; i < n; i++){
     
         if(est[i].preco < est[menor].preco){
-        
-            menor = i;
+        menor = i;
         }
     }
 
