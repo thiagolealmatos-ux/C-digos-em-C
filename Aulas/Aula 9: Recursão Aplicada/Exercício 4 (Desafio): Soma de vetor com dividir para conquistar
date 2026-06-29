@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int somaVetor(int v[], int n){
+    
+    if(n == 0){
+        return 0;
+    }
+    return v [0] + somaVetor ( v + 1 , n - 1) ;
+}
+int main()
+{
+    int n, soma = 0, v[5];
+    
+   for(int i = 0; i < 5; i++){
+       printf("Número %d:", i + 1);
+       scanf("%d", &v[i]);
+       
+   }
+   
+   printf("\nSoma dos vetores: %d", somaVetor(v,5));
+   
+    for(int i = 0; i < 5; i++){
+        soma += v[i];
+    }
+    
+    printf("\nSoma com for: %d", soma);
+
+    return 0;
+}
+
+
+
