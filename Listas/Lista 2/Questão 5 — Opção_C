@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int buscaBinariaRec(int v[], int ini, int fim, int alvo){
+    
+    if(ini > fim){
+        return - 1;
+    }
+    
+    int meio = (ini + fim) / 2;
+    
+    if(v[meio] == alvo){
+        return meio;
+    }
+    if(alvo < v[meio]){
+       buscaBinariaRec(v, ini, meio - 1, alvo);
+        
+    }
+    else{
+       buscaBinariaRec(v, meio + 1, fim, alvo);
+    }
+   
+
+ return - 1;
+}
+int main()
+{
+    int v[5], alvo, posicao;
+    
+ 
+    
+    for(int i = 0; i < 5; i++){
+        printf("Digite o %d° Número: ", i + 1);
+        scanf("%d", &v[i]);
+    }
+   
+
+    printf("\nSeu vetor{");
+    
+    for(int i = 0; i < 5; i++){
+        printf("%d,", v[i]);
+    }
+    printf("}\n");
+    
+ printf("\nDigite o número que deseja achar:");
+    scanf("%d", &alvo);
+    
+    posicao = buscaBinariaRec(v, 0, 4, alvo);
+
+if(posicao == -1){
+    printf("Posição não encontrada\n");
+}
+else{
+    printf("Posição do Número desejado: %d\n", posicao);
+}
+    return 0;
+}

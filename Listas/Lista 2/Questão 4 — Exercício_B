@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int buscaBinaria(int v[], int n, int alvo){
+    
+    int inicio = 0;
+    int fim = n - 1;
+    
+    while(inicio <= fim){
+    
+    int meio = (inicio + fim) / 2;
+    
+    if(v[meio] == alvo){
+        return meio;
+    }
+    if(alvo < v[meio]){
+        fim = meio - 1;
+        
+    }
+    else{
+        inicio = meio + 1;
+    }
+   
+}
+ return - 1;
+}
+int main()
+{
+    int v[5], alvo, posicao;
+    
+ 
+    
+    for(int i = 0; i < 5; i++){
+        printf("Digite o %d° Número: ", i + 1);
+        scanf("%d", &v[i]);
+    }
+   
+
+    printf("\nSeu vetor{");
+    
+    for(int i = 0; i < 5; i++){
+        printf("%d,", v[i]);
+    }
+    printf("}\n");
+    
+ printf("\nDigite o número que deseja achar:");
+    scanf("%d", &alvo);
+    
+    posicao = buscaBinaria(v, 5, alvo);
+
+if(posicao == -1){
+    printf("Posição não encontrada\n");
+}
+else{
+    printf("Posição do Número desejado: %d\n", posicao);
+}
+    return 0;
+}
+

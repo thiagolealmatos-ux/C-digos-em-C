@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int contarChar(char s[], int i, char c){
+    
+    if(s[i] == '\0'){
+        return 0;
+    }
+    
+    return (s[i] == c)  + contarChar(s, i + 1, c);
+}
+int main()
+{
+ char palavra[100];
+ 
+ printf("Digite uma Palavra: ");
+ scanf("%s", palavra);
+ 
+ printf("Quantos 'a' tem na palavra: %d", contarChar(palavra, 0, 'a'));
+
+    return 0;
+}
+
