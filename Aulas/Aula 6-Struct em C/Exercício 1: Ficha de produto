@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+typedef struct {
+    char nome[50];
+    int quantidade;
+    float preco;
+    
+} Produto;
+int main()
+{
+  Produto p;
+  
+  printf("Digite o nome do produto: ");
+  scanf("%s", p.nome);
+  
+  printf("Digite o preço do produto: R$");
+  scanf("%f", &p.preco);
+
+  printf("Digite a quantidade do produto: ");
+  scanf("%d", &p.quantidade);
+  
+  printf("\n--------Resumo da sua Compra--------\n");
+  
+  printf("Nome do produto: %s", p.nome);
+  printf("\nPreço do produto: %.2f", p.preco);
+  printf("\nQuantidade do produto: %d", p.quantidade);
+  
+  printf("\n---------------------------------------------\n");
+  
+  printf("Valor total em estoque: R$ %.2f\n", p.preco * p.quantidade);
+
+    return 0;
+}

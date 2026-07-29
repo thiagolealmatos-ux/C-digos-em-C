@@ -1,0 +1,85 @@
+#include <stdio.h>
+
+int buscaLinear(int v[], int n, int alvo, int *comparacoes){
+    
+    for(int i = 0; i < n; i++){
+        (*comparacoes)++;
+        
+        if(v[i] == alvo){
+            return i;
+        }
+    }
+    return - 1;
+}
+int buscaBinaria(int v[], int n, int alvo, int *comparacoes){
+    
+    int inicio = 0;
+    int fim = n - 1;
+    
+    while(inicio <= fim){
+        
+        (*comparacoes)++;
+        int meio = (inicio + fim) / 2;
+        
+        if(v[meio] == alvo){
+            
+            return meio;
+        }
+        if(alvo < v[meio]){
+            
+            fim = meio - 1;
+        }
+        else{
+            
+            inicio = meio + 1;
+        }
+    }
+}
+int main()
+{
+    int v[30], comparacaoLinear = 0, comparacaoBinaria = 0, alvo;
+    int posicaoLinear, posicaoBinaria;
+    
+    for(int i = 0; i < 30; i++){
+        v[i] = i + 1;
+    }
+    
+    printf("Vetor: ");
+    
+    for(int i = 0; i < 30; i++){
+        
+        printf("%d,", v[i]);
+    }
+    
+    printf("\nDigite o Número que deseja encontrar: ");
+    scanf("%d", &alvo);
+    
+    posicaoLinear = buscaLinear(v, 30, alvo, &comparacaoLinear);
+    posicaoBinaria = buscaBinaria(v, 30, alvo, &comparacaoBinaria);
+    
+    printf("\n------BUSCA LINEAR------\n");
+
+    if (posicaoLinear != -1)
+    {
+printf("Posição do Número desejado: %d\n", posicaoLinear);
+    }
+    else
+    {
+        printf("Numero não encontrado.\n");
+    }
+
+    printf("Comparações realizadas: %d\n", comparacaoLinear);
+printf("\n------BUSCA BINARIA------\n");
+
+    if (posicaoBinaria != -1)
+    {
+        printf("Posição do Número desejado: %d\n", posicaoBinaria);
+    }
+    else
+    {
+        printf("Numero não encontrado.\n");
+    }
+printf("Comparações realizadas: %d\n", comparacaoBinaria);
+
+    return 0;
+}
