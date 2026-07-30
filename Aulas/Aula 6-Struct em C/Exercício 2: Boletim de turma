@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+typedef struct{
+    
+    char nome[50];
+    float nota;
+    
+} Aluno;
+int main()
+{
+   int n, acimaMedia = 0;
+   float soma = 0, media;
+   
+   printf("Digite a quantidade de alunos: ");
+   scanf("%d", &n);
+   
+   Aluno aluno[n];
+   
+   for(int i = 0; i < n; i++){
+      
+       printf("Nome do %d° aluno: ", i + 1);
+       scanf("%s", aluno[i].nome);
+       printf("Digite a nota do %d° aluno: ", i + 1);
+       scanf("%f", &aluno[i].nota);
+       
+       soma += aluno[i].nota;
+   }
+   media = soma / n;
+   
+   printf("\n--------Boletim da Turma--------\n");
+   
+   for(int i = 0; i < n; i++){
+       printf("\nNome do aluno: %s", aluno[i].nome);
+       printf("\nNota do aluno: %.2f", aluno[i].nota);
+       
+       if(aluno[i].nota > media){
+        acimaMedia++;
+       }
+   }
+   
+   printf("\nMedia da turma: %.2f", media);
+   printf("\nAlunos acima da média: %d", acimaMedia);
+
+    return 0;
+}

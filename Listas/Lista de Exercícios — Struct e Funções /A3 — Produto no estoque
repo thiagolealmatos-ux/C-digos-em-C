@@ -27,9 +27,9 @@ int main()
   
   printf("\nRESUMO DA SUA COMPRA!");
   printf("\n---------------------------------------------");
-  printf("\nO Valor total da sua conta é: %.2f ", total);
+  printf("\nO Valor total da sua compra é: %.2f ", total);
   printf("\n------------------------------------------------");
-  printf("\nO Valor da sua conta com 10%% desconto é:%.2f", desconto);
+  printf("\nO Valor da sua compra com 10%% desconto é:%.2f", desconto);
   
   
   
