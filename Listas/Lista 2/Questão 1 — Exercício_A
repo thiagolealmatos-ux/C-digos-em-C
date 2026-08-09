@@ -1,0 +1,2 @@
+Caso Base-E a condição que da o fim pra recursão, sem ele a função continuaria chamando ele infinitamente.
+Chamada Recursiva-É quando a função chama ela mesma.
