@@ -1,0 +1,4 @@
+1- Acessar v[5] diretamente - O(1)
+2- Um único for de 0 a n - O(n)
+3- Dois for aninhados, ambos de 0 a n - O(n²)
+4- Uma busca binária - O(log n)

@@ -1,0 +1,13 @@
+1- Qual tag cria o título da página?
+R= A tag <title>, que está dentro do <head>.
+
+2- Qual tag guarda o nome do aluno, e qual é o id dela?
+R= tag <p> guarda o nome. O id dela é nome.
+
+3- Quantos itens de lista (<li>) existem hoje?
+R= Existe 1 item: Programar
+
+4- O que está dentro do <head> e o que está dentro do <body>? Por que essa separação existe?
+R= -No <head> ficam informações da página, como o <title> e o <style>.
+-No <body> fica o conteúdo que aparece na página, como o título, o nome e a lista de hobbies.
+-Essa separação existe para organizar o conteúdo da página e as informações/configurações dela.
